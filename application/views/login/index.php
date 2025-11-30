@@ -14,7 +14,7 @@
 <div class="login-box">
   <!-- Logo -->
   <div class="login-logo">
-    <a href="#"><b>My</b>App</a>
+    <a href="#"><b>ADMIN</b>LTE</a>
   </div>
 
   <!-- Card -->
