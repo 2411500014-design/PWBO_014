@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0"><?= isset($page_title) ? $page_title : 'Data Ortu' ?></h1>
+          <h1 class="m-0"><?= isset($page_title) ? $page_title : 'Data Kunjungan' ?></h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Home</a></li>
-            <li class="breadcrumb-item active">Orang Tua</li>
+            <li class="breadcrumb-item active">Kunjungan</li>
           </ol>
         </div>
       </div>
@@ -42,9 +42,9 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Daftar Orang Tua</h3>
+              <h3 class="card-title">Daftar Kunjungan</h3>
               <div class="card-tools">
-                <a href="<?= base_url('ortu/tambah') ?>" class="btn btn-primary btn-sm">
+                <a href="<?= base_url('kunjungan/tambah') ?>" class="btn btn-primary btn-sm">
                   <i class="fas fa-plus"></i> Tambah Data
                 </a>
               </div>
@@ -54,28 +54,28 @@
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama Ibu</th>
-                    <th>Nama Ayah</th>
-                    <th>Hubungan</th>
-                    <th>Telepon</th>
-                    <th>Alamat</th>
+                    <th>Nama Anak</th>
+                    <th>NIK</th>
+                    <th>Orang Tua</th>
+                    <th>Tanggal Kunjungan</th>
+                    <th>Fasilitas</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php if(isset($ortu) && $ortu): $no = 1; foreach($ortu as $row): ?>
+                  <?php if(isset($kunjungan) && $kunjungan): $no = 1; foreach($kunjungan as $row): ?>
                   <tr>
                     <td><?= $no++ ?></td>
-                    <td><?= $row->name_ibu ?></td>
-                    <td><?= $row->name_ayah ?></td>
-                    <td><?= $row->hubungan ?></td>
-                    <td><?= $row->telp ?></td>
-                    <td><?= $row->alamat ?></td>
+                    <td><?= $row->nama_anak ?></td>
+                    <td><?= $row->nik ?></td>
+                    <td><?= $row->name_ibu ?> / <?= $row->name_ayah ?></td>
+                    <td><?= date('d/m/Y', strtotime($row->tgl_kunjungan)) ?></td>
+                    <td><?= $row->fasilitas ?></td>
                     <td>
-                      <a href="<?= base_url('ortu/edit/'.$row->id_ortu) ?>" class="btn btn-sm btn-warning">
+                      <a href="<?= base_url('kunjungan/edit/'.$row->id_kunjungan) ?>" class="btn btn-sm btn-warning">
                         <i class="fas fa-edit"></i> Edit
                       </a>
-                      <a href="<?= base_url('ortu/delete/'.$row->id_ortu) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                      <a href="<?= base_url('kunjungan/delete/'.$row->id_kunjungan) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                         <i class="fas fa-trash"></i> Hapus
                       </a>
                     </td>

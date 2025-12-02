@@ -3,11 +3,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ortu_model extends CI_Model {
 
-    private $table = 'ortu';
+    protected $table = 'ortu';
+    protected $primary_key = 'id_ortu';
+
+    public function __construct() {
+        parent::__construct();
+        $this->load->database();
+    }
 
     public function get_all() {
-        
-        $query = $this->db->get($this->table);
-        return $query->result();
+        return $this->db->get($this->table)->result();
+    }
+
+    public function get_by_id($id) {
+        return $this->db->where($this->primary_key, $id)->get($this->table)->row();
+    }
+
+    public function create($data) {
+        $this->db->insert($this->table, $data);
+        return $this->db->insert_id();
+    }
+
+    public function update($id, $data) {
+        $this->db->where($this->primary_key, $id);
+        return $this->db->update($this->table, $data);
+    }
+
+    public function delete($id) {
+        $this->db->where($this->primary_key, $id);
+        return $this->db->delete($this->table);
+    }
+
+    public function count_all() {
+        return $this->db->count_all($this->table);
     }
 }
