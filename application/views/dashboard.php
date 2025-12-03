@@ -27,7 +27,7 @@
               <div class="card-body">
                 <h5 class="card-title">Halo, <?= isset($user['name']) ? $user['name'] : 'Pengguna'; ?></h5>
                 <p class="card-text mb-0">
-                  Selamat datang di portal penyuluhan. Gunakan menu di samping untuk mengelola data.
+                  Selamat datang di portal penyuluhan gizi anak. Gunakan menu di samping untuk mengelola data.
                 </p>
               </div>
             </div>
