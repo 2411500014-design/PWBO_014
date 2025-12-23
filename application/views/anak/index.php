@@ -72,7 +72,7 @@
                     <td><?= date('d/m/Y', strtotime($row->tgl_lahir)) ?></td>
                     <td><?= $row->name_ibu ?> / <?= $row->name_ayah ?></td>
                     <td>
-                      <a href="<?= base_url('anak/edit/'.$row->id_anak) ?>" class="btn btn-sm btn-warning">
+                      <a href="<?= base_url('anak/edit/'.$row->id_anak) ?>" class="btn btn-sm btn-success">
                         <i class="fas fa-edit"></i> Edit
                       </a>
                       <a href="<?= base_url('anak/delete/'.$row->id_anak) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">

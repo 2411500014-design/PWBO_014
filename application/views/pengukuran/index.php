@@ -80,7 +80,7 @@
                         <td><?= $row->vaksin ?></td>
                         <td><span class="badge badge-info"><?= $row->status_gizi ?></span></td>
                         <td>
-                          <a href="<?= base_url('pengukuran/edit/' . $row->id_ukur) ?>" class="btn btn-sm btn-warning">
+                          <a href="<?= base_url('pengukuran/edit/' . $row->id_ukur) ?>" class="btn btn-sm btn-success">
                             <i class="fas fa-edit"></i> Edit
                           </a>
                           <a href="<?= base_url('pengukuran/delete/' . $row->id_ukur) ?>" class="btn btn-sm btn-danger"

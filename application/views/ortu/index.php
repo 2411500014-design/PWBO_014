@@ -72,7 +72,7 @@
                     <td><?= $row->telp ?></td>
                     <td><?= $row->alamat ?></td>
                     <td>
-                      <a href="<?= base_url('ortu/edit/'.$row->id_ortu) ?>" class="btn btn-sm btn-warning">
+                      <a href="<?= base_url('ortu/edit/'.$row->id_ortu) ?>" class="btn btn-sm btn-success">
                         <i class="fas fa-edit"></i> Edit
                       </a>
                       <a href="<?= base_url('ortu/delete/'.$row->id_ortu) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
