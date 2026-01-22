@@ -13,8 +13,13 @@ class MY_Controller extends CI_Controller
     {
         parent::__construct();
 
-        // Make sure session library is available even if a controller forgets to load it.
+        // Load libraries yang sering digunakan
         $this->load->library('session');
+        $this->load->library('form_validation');
+        
+        // Load helpers yang sering digunakan
+        $this->load->helper('form');
+        $this->load->helper('url');
 
         if ($this->requires_auth && !$this->session->userdata('logged_in')) {
             redirect('login');
