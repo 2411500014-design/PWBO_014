@@ -11,6 +11,7 @@ class Kunjungan_model extends CI_Model {
         $this->load->database();
     }
 
+    // Ambil semua data kunjungan dengan join ke tabel anak dan ortu
     public function get_all() {
         $this->db->select('kunjungan.*, anak.name as nama_anak, anak.nik, ortu.name_ibu, ortu.name_ayah');
         $this->db->from($this->table);
@@ -19,6 +20,7 @@ class Kunjungan_model extends CI_Model {
         return $this->db->get()->result();
     }
 
+    // Ambil data kunjungan berdasarkan ID dengan join ke tabel anak dan ortu
     public function get_by_id($id) {
         $this->db->select('kunjungan.*, anak.name as nama_anak, anak.nik, anak.id_anak, ortu.name_ibu, ortu.name_ayah');
         $this->db->from($this->table);
@@ -28,21 +30,25 @@ class Kunjungan_model extends CI_Model {
         return $this->db->get()->row();
     }
 
+    // Tambah data kunjungan baru
     public function create($data) {
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();
     }
 
+    // Update data kunjungan
     public function update($id, $data) {
         $this->db->where($this->primary_key, $id);
         return $this->db->update($this->table, $data);
     }
 
+    // Hapus data kunjungan
     public function delete($id) {
         $this->db->where($this->primary_key, $id);
         return $this->db->delete($this->table);
     }
 
+    // Ambil data kunjungan berdasarkan anak_id
     public function get_by_anak($anak_id) {
         $this->db->select('kunjungan.*, anak.name as nama_anak');
         $this->db->from($this->table);
