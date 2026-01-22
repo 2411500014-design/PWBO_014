@@ -50,7 +50,7 @@
               </div>
             </div>
             <div class="card-body">
-              <table class="table table-bordered table-striped">
+              <table id="tableAnak" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -94,3 +94,17 @@
     </div>
   </section>
 </div>
+
+<script>
+  // Inisialisasi DataTables
+  $(document).ready(function() {
+    $('#tableAnak').DataTable({
+      "responsive": true,
+      "lengthChange": true,
+      "autoWidth": false,
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Indonesian.json"
+      }
+    });
+  });
+</script>

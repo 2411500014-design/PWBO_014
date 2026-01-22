@@ -54,12 +54,22 @@
 
               <div class="form-group">
                 <label for="fasilitas">Fasilitas <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="fasilitas" name="fasilitas" value="<?= set_value('fasilitas', $kunjungan->fasilitas) ?>" placeholder="Contoh: Puskesmas, Rumah Sakit, Klinik" required>
+                <select class="form-control" id="fasilitas" name="fasilitas" required>
+                  <option value="">Pilih Fasilitas</option>
+                  <option value="Puskesmas" <?= set_value('fasilitas', $kunjungan->fasilitas) == 'Puskesmas' ? 'selected' : '' ?>>Puskesmas</option>
+                  <option value="Rumah Sakit" <?= set_value('fasilitas', $kunjungan->fasilitas) == 'Rumah Sakit' ? 'selected' : '' ?>>Rumah Sakit</option>
+                  <option value="Klinik" <?= set_value('fasilitas', $kunjungan->fasilitas) == 'Klinik' ? 'selected' : '' ?>>Klinik</option>
+                  <option value="Posyandu" <?= set_value('fasilitas', $kunjungan->fasilitas) == 'Posyandu' ? 'selected' : '' ?>>Posyandu</option>
+                </select>
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Edit</button>
-              <a href="<?= base_url('kunjungan') ?>" class="btn btn-secondary">Batal</a>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Update
+              </button>
+              <a href="<?= base_url('kunjungan') ?>" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Batal
+              </a>
             </div>
             <?= form_close() ?>
           </div>

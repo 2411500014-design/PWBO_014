@@ -98,8 +98,12 @@
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Simpan</button>
-              <a href="<?= base_url('anak') ?>" class="btn btn-secondary">Batal</a>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Simpan
+              </button>
+              <a href="<?= base_url('anak') ?>" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Batal
+              </a>
             </div>
             <?= form_close() ?>
           </div>

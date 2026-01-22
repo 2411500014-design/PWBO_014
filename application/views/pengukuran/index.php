@@ -50,12 +50,13 @@
               </div>
             </div>
             <div class="card-body">
-              <table class="table table-bordered table-striped">
+              <table id="tablePengukuran" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>No</th>
                     <th>Nama Anak</th>
                     <th>NIK</th>
+                    <th>Orang Tua</th>
                     <th>Tanggal Ukur</th>
                     <th>Berat Badan (kg)</th>
                     <th>Tinggi Badan (cm)</th>
@@ -68,17 +69,28 @@
                 <tbody>
                   <?php if (isset($pengukuran) && $pengukuran):
                     $no = 1;
-                    foreach ($pengukuran as $row): ?>
+                    foreach ($pengukuran as $row): 
+                      // Tentukan warna badge berdasarkan status gizi
+                      $badge_class = 'badge-info';
+                      if ($row->status_gizi == 'Gizi Baik') {
+                        $badge_class = 'badge-success';
+                      } elseif ($row->status_gizi == 'Gizi Kurang') {
+                        $badge_class = 'badge-warning';
+                      } elseif ($row->status_gizi == 'Gizi Buruk') {
+                        $badge_class = 'badge-danger';
+                      }
+                    ?>
                       <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $row->nama_anak ?></td>
                         <td><?= $row->nik ?></td>
+                        <td><?= $row->name_ibu ?> / <?= $row->name_ayah ?></td>
                         <td><?= date('d/m/Y', strtotime($row->tgl_ukur)) ?></td>
                         <td><?= $row->bb ?></td>
                         <td><?= $row->tb ?></td>
                         <td><?= $row->lk ?></td>
                         <td><?= $row->vaksin ?></td>
-                        <td><span class="badge badge-info"><?= $row->status_gizi ?></span></td>
+                        <td><span class="badge <?= $badge_class ?>"><?= $row->status_gizi ?></span></td>
                         <td>
                           <a href="<?= base_url('pengukuran/edit/' . $row->id_ukur) ?>" class="btn btn-sm btn-success">
                             <i class="fas fa-edit"></i> Edit
@@ -91,7 +103,7 @@
                       </tr>
                     <?php endforeach; else: ?>
                     <tr>
-                      <td colspan="10" class="text-center">Tidak ada data</td>
+                      <td colspan="11" class="text-center">Tidak ada data</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>
@@ -103,3 +115,17 @@
     </div>
   </section>
 </div>
+
+<script>
+  // Inisialisasi DataTables
+  $(document).ready(function() {
+    $('#tablePengukuran').DataTable({
+      "responsive": true,
+      "lengthChange": true,
+      "autoWidth": false,
+      "language": {
+        "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Indonesian.json"
+      }
+    });
+  });
+</script>

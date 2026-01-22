@@ -75,7 +75,20 @@
 
               <div class="form-group">
                 <label for="vaksin">Vaksin <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="vaksin" name="vaksin" value="<?= set_value('vaksin', $pengukuran->vaksin) ?>" placeholder="Contoh: BCG, DPT, Polio" required>
+                <select class="form-control" id="vaksin" name="vaksin" required>
+                  <option value="">Pilih Vaksin</option>
+                  <option value="BCG" <?= set_value('vaksin', $pengukuran->vaksin) == 'BCG' ? 'selected' : '' ?>>BCG (Bacillus Calmette-Guérin)</option>
+                  <option value="Hepatitis B" <?= set_value('vaksin', $pengukuran->vaksin) == 'Hepatitis B' ? 'selected' : '' ?>>Hepatitis B</option>
+                  <option value="DPT" <?= set_value('vaksin', $pengukuran->vaksin) == 'DPT' ? 'selected' : '' ?>>DPT (Difteri, Pertusis, Tetanus)</option>
+                  <option value="Hib" <?= set_value('vaksin', $pengukuran->vaksin) == 'Hib' ? 'selected' : '' ?>>Hib (Haemophilus influenzae type b)</option>
+                  <option value="Polio" <?= set_value('vaksin', $pengukuran->vaksin) == 'Polio' ? 'selected' : '' ?>>Polio</option>
+                  <option value="PCV" <?= set_value('vaksin', $pengukuran->vaksin) == 'PCV' ? 'selected' : '' ?>>PCV (Pneumococcal Conjugate Vaccine)</option>
+                  <option value="Rotavirus" <?= set_value('vaksin', $pengukuran->vaksin) == 'Rotavirus' ? 'selected' : '' ?>>Rotavirus</option>
+                  <option value="Campak" <?= set_value('vaksin', $pengukuran->vaksin) == 'Campak' ? 'selected' : '' ?>>Campak</option>
+                  <option value="MMR" <?= set_value('vaksin', $pengukuran->vaksin) == 'MMR' ? 'selected' : '' ?>>MMR (Measles, Mumps, Rubella)</option>
+                  <option value="DPT-HB-Hib" <?= set_value('vaksin', $pengukuran->vaksin) == 'DPT-HB-Hib' ? 'selected' : '' ?>>DPT-HB-Hib (Kombinasi)</option>
+                  <option value="DPT-HB" <?= set_value('vaksin', $pengukuran->vaksin) == 'DPT-HB' ? 'selected' : '' ?>>DPT-HB (Kombinasi)</option>
+                </select>
               </div>
 
               <div class="form-group">
@@ -85,13 +98,16 @@
                   <option value="Gizi Baik" <?= (set_value('status_gizi', $pengukuran->status_gizi) == 'Gizi Baik') ? 'selected' : '' ?>>Gizi Baik</option>
                   <option value="Gizi Kurang" <?= (set_value('status_gizi', $pengukuran->status_gizi) == 'Gizi Kurang') ? 'selected' : '' ?>>Gizi Kurang</option>
                   <option value="Gizi Buruk" <?= (set_value('status_gizi', $pengukuran->status_gizi) == 'Gizi Buruk') ? 'selected' : '' ?>>Gizi Buruk</option>
-                  <option value="Gizi Lebih" <?= (set_value('status_gizi', $pengukuran->status_gizi) == 'Gizi Lebih') ? 'selected' : '' ?>>Gizi Lebih</option>
                 </select>
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Edit</button>
-              <a href="<?= base_url('pengukuran') ?>" class="btn btn-secondary">Batal</a>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i> Update
+              </button>
+              <a href="<?= base_url('pengukuran') ?>" class="btn btn-secondary">
+                <i class="fas fa-times"></i> Batal
+              </a>
             </div>
             <?= form_close() ?>
           </div>
